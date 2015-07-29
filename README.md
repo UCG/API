@@ -25,6 +25,45 @@ $ curl -i "http://www.ucg.org/api/v1.0/media?production=209"
 This example pulls a list of media filtered by the production type 209, which is "Beyond Today Television Program"
 ##Root Endpoint
 
+##Consuming the API
+The following examples use the *media* section of the API.
+
+###Calling a list of media items
+```bash
+$ curl http://www.ucg.org/api/v1.0/media
+```
+###View multiple items at once
+```bash
+$ curl http://www.ucg.org/api/v1.0/media/1,2
+```
+###Exploring the API
+Using a HTTP ```GET``` request on a resource's root URL will return info about that resource, and the data itself.
+The data results are stored in the ```data``` property of the JSON response, while the ```self``` and ```next``` objects contain additional information about the resource being called.
+```json
+"self":{
+"title":"Self",
+"href":"http://www.ucg.org/api/v1.0/media"
+},
+"next":{
+"title":"Next",
+"href":"http://www.ucg.org/api/v1.0/media?page=2"
+}
+```
+### Returning specific fields
+Using ```?fields``` query string, you can declare which fields should be returned. You can return most fields, but specific may not be returned without the rest of the item.
+```bash
+$ curl http://www.ucg.org/api/v1.0/media/225856?fields=created
+```
+Returns the following: 
+```json
+"data":[
+{
+"created":"1438013820"
+}
+],
+```
+##Filtering
+
 ##Authentication
 @todo
 
