@@ -65,5 +65,18 @@ Returns the following:
 ##Filtering
 
 ##Authentication
-@todo
+Access to the API is restricted to @todo calls a day to unauthenticated users. Authenticated connections can call on the API an @todo (unlimited?) times per day.
 
+In order to gain authenticated access you must first have an account at ucg.org. Then request authenticated access to the API by @todo.
+
+After recieving API access permission you can gain less restricted access to the API. Connect the api and request a "Token" using the method below. Then Append the URL GET variable access_token with your Token to all of your requests.
+```
+# (Change username and password)
+curl -u "username:password" https://ucg.org/api/login
+
+# Response has access token.
+{"access_token":"YOUR_TOKEN"}
+
+# Call a "protected" with token resource
+curl https://ucg.org/api/v1.1/media/1?access_token=YOUR_TOKEN
+```
