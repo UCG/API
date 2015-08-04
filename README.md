@@ -65,7 +65,7 @@ Returns the following:
 ##Filtering
 
 ##Authentication
-Access to the API is restricted to @todo calls a day to unauthenticated users. Authenticated connections can call on the API an @todo (unlimited?) times per day.
+Access to the API is restricted to 100 GET calls a day to unauthenticated users. Authenticated connections can call on the API an @todo (unlimited?) times per day.
 
 In order to gain authenticated access you must first have an account at ucg.org. Then request authenticated access to the API by @todo.
 
